@@ -5,7 +5,7 @@ COPY nginx.conf /etc/nginx/nginx.conf.template
 COPY entry.sh /entry.sh
 
 RUN yum upgrade -y; \
-    yum install -y rsync nginx procps; \
+    yum install -y rsync nginx procps gettext; \
     yum module install php:8.1/common -y; \
     yum clean all -y; \
     mkdir -p /run/php-fpm/; \
