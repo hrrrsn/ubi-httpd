@@ -11,6 +11,8 @@ RUN yum upgrade -y; \
     mkdir -p /run/php-fpm/; \
     ln -sf /dev/stdout /var/log/nginx/access.log; \
     ln -sf /dev/stderr /var/log/nginx/error.log; \
+    chgrp -R 0 /etc/nginx /run/php-fpm /entry.sh;\
+    chmod -R g=u /etc/nginx /run/php-fpm /entry.sh; \
     chmod +x /entry.sh
 
 EXPOSE 8080
