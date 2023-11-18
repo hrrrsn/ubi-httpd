@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi:9.2
+FROM registry.access.redhat.com/ubi9/ubi:9.3
 
 COPY phpinfo.php /usr/share/nginx/html/phpinfo.php
 COPY nginx.conf /etc/nginx/nginx.conf.template
