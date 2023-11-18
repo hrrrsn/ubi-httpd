@@ -15,6 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Extract base image tag from Dockerfile
         run: echo "BASE_IMAGE_TAG=$(grep FROM Dockerfile | awk -F':' '{print $2}' | awk -F' ' '{print $1}')" >> $GITHUB_ENV
       
@@ -30,7 +33,7 @@ jobs:
         run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//-/g')" >> $GITHUB_ENV
       
       - name: Build and push Docker image
-        uses: docker/build-push-action@v4.1.1
+        uses: docker/build-push-action@v4.2.0
         with:
           context: .
           push: true
