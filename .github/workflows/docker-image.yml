@@ -38,3 +38,4 @@ jobs:
             ghcr.io/${{ github.repository }}:${{ github.sha }}
             ghcr.io/${{ github.repository }}:latest
             ghcr.io/${{ github.repository }}:${{ env.BASE_IMAGE_TAG }}
+          platforms: linux/amd64,linux/arm64
